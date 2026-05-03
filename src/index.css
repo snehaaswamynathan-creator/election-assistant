@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap');
+
+:root {
+  --saffron: #FF6B00;
+  --saffron-light: #FF9933;
+  --navy: #1a237e;
+  --navy-light: #3949ab;
+  --green: #1B5E20;
+  --green-light: #2E7D32;
+  --tricolor-mid: #ffffff;
+
+  --primary: #1a237e;
+  --primary-light: #3949ab;
+  --secondary: #FF6B00;
+  --accent: #2E7D32;
+
+  --background: #f0f2f5;
+  --surface: #ffffff;
+  --surface-hover: #f8f9fa;
+  --surface-elevated: #ffffff;
+  --text: #0d1117;
+  --text-muted: #6e7681;
+  --text-light: #8b949e;
+  --border: #d0d7de;
+  --border-light: #e8eaed;
+
+  --success: #2E7D32;
+  --warning: #FF6B00;
+  --error: #c62828;
+  --info: #1565C0;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 40px rgba(0,0,0,0.16);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --font-base: 'Inter', 'Noto Sans Devanagari', sans-serif;
+  --text-scale: 1;
+}
+
+[data-theme='dark'] {
+  --background: #0d1117;
+  --surface: #161b22;
+  --surface-hover: #21262d;
+  --surface-elevated: #1c2128;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-light: #6e7681;
+  --border: #30363d;
+  --border-light: #21262d;
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-size: calc(16px * var(--text-scale));
+  line-height: 1.5;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tricolor gradient text */
+.tricolor-text {
+  background: linear-gradient(90deg, var(--saffron) 0%, var(--navy) 45%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ashoka Chakra spin */
+.chakra-spin { animation: chakraSpin 30s linear infinite; }
+@keyframes chakraSpin { to { transform: rotate(360deg); } }
+
+/* Tricolor stripe top bar */
+.tricolor-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--saffron) 0%, var(--saffron) 33.33%, white 33.33%, white 66.66%, var(--green) 66.66%, var(--green) 100%);
+}
+
+/* Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes liveBlip { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-hover) 25%, var(--border-light) 50%, var(--surface-hover) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
